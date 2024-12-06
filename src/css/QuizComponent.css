@@ -1,0 +1,39 @@
+body {
+  text-align: center;
+  background-color: #8E38EB;
+}
+body .question {
+  background-color: purple;
+  padding: 1vw;
+  width: 40vw;
+  margin: auto;
+  margin-top: 17vw;
+  box-shadow: 5px 10px rgb(70, 0, 70);
+}
+body .question h2 {
+  color: white;
+  text-shadow: 3px 3px black;
+}
+body .question p {
+  color: white;
+  text-shadow: 2px 2px black;
+}
+body .question .answers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+body .question .answers button {
+  background-color: #5D4F6B;
+  color: #38EB70;
+  padding: 1vw;
+  margin: 1vw;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 30s ease, color 30s ease;
+  flex: 45%;
+}
+body .question .answers button:hover {
+  background-color: #8E38EB;
+  color: white;
+}/*# sourceMappingURL=QuizComponent.css.map */
