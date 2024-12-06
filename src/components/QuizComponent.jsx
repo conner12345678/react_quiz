@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 const QuizComponent = ({ question, answers, next, num, correct }) => {
   const [right, setRight] = useState(0)
+  const [wrong, setWrong] = useState(0)
   const isCorrect = (answer) => {
     if(answer === correct[num]){
       if(num + 1 === correct.length){
@@ -10,10 +11,12 @@ const QuizComponent = ({ question, answers, next, num, correct }) => {
           setRight(right + 1)
           setTimeout(() => {
             setRight(0)
+            setWrong(0)
           }, 1000);
         }else{
           setTimeout(() => {
             setRight(0)
+            setWrong(0)
           }, 1000);
         }
       }else{
@@ -21,15 +24,30 @@ const QuizComponent = ({ question, answers, next, num, correct }) => {
         }
       }else{
         if(num + 1 === correct.length){
-          setTimeout(() => {
-            setRight(0)
-          }, 1000);
+          if(wrong <= correct.length-1){
+            setWrong(wrong + 1)
+            setTimeout(() => {
+              setRight(0)
+              setWrong(0)
+            }, 1000);
+          }else{
+            setTimeout(() => {
+              setRight(0)
+              setWrong(0)
+            }, 1000);
+          }
+      }else{
+        setWrong(wrong + 1)
       }
     }
   }
+
+  var style = {
+    animation: "spin 2s linear"
+  }
   return (
     <div className="question">
-        <h1>Correct: {right}</h1>
+        <h1>Points: {right} | Misses {wrong}</h1>
         <h2>Question {num + 1}</h2>
         <p>{question}</p>
         <div className="answers">
