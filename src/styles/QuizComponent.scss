@@ -1,37 +1,47 @@
 body{
     text-align: center;
-    background-color: #8E38EB;
+    background-color: #9533A6;
     .question{
-        background-color: purple;
+        background-color: #5F3966;
         padding: 1vw;
         width: 40vw;
         margin: auto;
         margin-top: 17vw;
-        box-shadow: 5px 10px rgb(70, 0, 70);
+        box-shadow: 5px 10px #2e1b32;
         h2{
             color: white;
             text-shadow: 3px 3px black;
+            font-size: 1.5vw;
         }
         p{
             color: white;
             text-shadow: 2px 2px black;
+            font-size: 1vw;
+        }
+        h1{
+            color: white;
+            text-shadow: 3px 3px black;
+            font-size: 2.5vw;
         }
         .answers{
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
             button{
-                background-color: #5D4F6B;
-                color: #38EB70;
+                background-color: #343C2B;
+                color: white;
                 padding: 1vw;
                 margin: 1vw;
                 border-radius: 10px;
-                cursor: pointer;
-                transition: background-color 30s ease, color 30s ease;
-                flex: 45%;
+                text-shadow: 3px 4px black;
+                transition: background-color 1s ease, color 1s ease, text-shadow 1s ease;
+                flex: 43%;
+                font-size: 1vw;
                 &:hover{
-                    background-color: #8E38EB;
-                    color: white;
+                    background-color: white;
+                    color: black;
+                    text-shadow: 3px 4px white;
+                    cursor: pointer; 
                 }
             }
         }

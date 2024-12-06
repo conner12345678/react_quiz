@@ -1,15 +1,42 @@
 import '../css/QuizComponent.css'
+import { useState } from 'react'
 
-const QuizComponent = ({ question, answers }) => {
+const QuizComponent = ({ question, answers, next, num, correct }) => {
+  const [right, setRight] = useState(0)
+  const isCorrect = (answer) => {
+    if(answer === correct[num]){
+      if(num + 1 === correct.length){
+        if(right <= correct.length-1){
+          setRight(right + 1)
+          setTimeout(() => {
+            setRight(0)
+          }, 1000);
+        }else{
+          setTimeout(() => {
+            setRight(0)
+          }, 1000);
+        }
+      }else{
+        setRight(right + 1)
+        }
+      }else{
+        if(num + 1 === correct.length){
+          setTimeout(() => {
+            setRight(0)
+          }, 1000);
+      }
+    }
+  }
   return (
     <div className="question">
-        <h2>Question 1</h2>
-        <p>What is the capital of France?</p>
+        <h1>Correct: {right}</h1>
+        <h2>Question {num + 1}</h2>
+        <p>{question}</p>
         <div className="answers">
-            <button>Option 1</button>
-            <button>Option 2</button>
-            <button>Option 3</button>
-            <button>Option 4</button>
+            <button onClick={()=>{next(); isCorrect(answers[0])}}>{answers[0]}</button>
+            <button onClick={()=>{next(); isCorrect(answers[1])}}>{answers[1]}</button>
+            <button onClick={()=>{next(); isCorrect(answers[2])}}>{answers[2]}</button>
+            <button onClick={()=>{next(); isCorrect(answers[3])}}>{answers[3]}</button>
         </div>
   
     </div>
