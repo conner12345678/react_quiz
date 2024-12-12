@@ -41,10 +41,6 @@ const QuizComponent = ({ question, answers, next, num, correct }) => {
       }
     }
   }
-
-  var style = {
-    animation: "spin 2s linear"
-  }
   return (
     <div className="question">
         <h1>Points: {right} | Misses {wrong}</h1>
